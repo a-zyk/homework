@@ -8,11 +8,11 @@ A date range spanning from the start to the end is created and then iterated ove
 
 ## Things to be improved
 
-More that 24 hours can be put into busy hours input, negative number can be put in busy hours and work hours inputs and that breaks calculations. Setting min and max values for input would help but that only works in the form input on submit. So keeping the form in the form tag would help.
+More that 24 hours can be put into the busy hours input, negative number can be put in busy hours and work hours inputs and that breaks calculations. Setting min and max values for input would help but that only works in the form input on submit. So keeping the form in the form tag would help.
 
 There is an option to change each day's busy and work hours, however, it does not recalculate/update the object that holds busy/work hours correctly. As the busy hours/work hours object is updated in 2 different functions it breaks. Solution would be to set and rewrite updated busy/work hours in the same function...
 
-There is no option to exclude holidays or change weekend to a work day as it would require to update object that holds work hours and busy hours, however,  the same issue wound arrise as mentioned above.
+There is no option to exclude holidays or change weekend to a work day as it would require to update the object that holds work hours and busy hours, however, the same issue wound arrise as mentioned above.
 
 ## Running the project
 
