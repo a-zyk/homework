@@ -1,6 +1,20 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Introduction about the project
 
-## Getting Started
+This app will let you to choose a date range, work hours, busy hours per day and calculate how many hours per day you need to work to achieve your goal in the given date frame. It will exclude weekends as well.
+
+## How it works
+
+A date range spanning from the start to the end is created and then iterated over. Busy hours are substracted from 24 hours - that leaves us total time that can be used for studying. This number gets deducted from total time that is required to finish the thesis. As the loop goes on study time gets substracted and the math.min checks if the available time for study more or less than actual work time per day. This ensures that if work hours are less than available study time only work hours are put into the object as a value.
+
+## Things to be improved
+
+More that 24 hours can be put into busy hours input, negative number can be put in busy hours and work hours inputs and that breaks calculations. Setting min and max values for input would help but that only works in the form input on submit. So keeping the form in the form tag would help.
+
+There is an option to change each day's busy and work hours, however, it does not recalculate/update the object that holds busy/work hours correctly. As the busy hours/work hours object is updated in 2 different functions it breaks. Solution would be to set and rewrite updated busy/work hours in the same function...
+
+There is no option to exclude holidays or change weekend to a work day as it would require to update object that holds work hours and busy hours, however,  the same issue wound arrise as mentioned above.
+
+## Running the project
 
 First, run the development server:
 
@@ -13,22 +27,3 @@ pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

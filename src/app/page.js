@@ -28,13 +28,13 @@ export default function Home() {
   const setResults = () => {
     const days = dateRange(startDate, endDate);
 
+    // Need to use Object.assign to create a new object each state update because the state change will not be triggered if only the key-value pairs are changed.
     let newStats = Object.assign({}, stats);
-
+    // Check read me for comments
     let workHours = totalStudyHours;
     days.forEach((day) => {
       const hoursLeftInTheDay = 24;
-      const adjustedBusyHours = busyHours;
-      const timeLeftForStudies = hoursLeftInTheDay - adjustedBusyHours;
+      const timeLeftForStudies = hoursLeftInTheDay - busyHours;
       let actualyStudyTime = Math.min(timeLeftForStudies, workHours);
 
       if (skipWork(day)) {
@@ -44,7 +44,7 @@ export default function Home() {
       workHours -= actualyStudyTime;
 
       newStats[day] = {
-        busyHours: adjustedBusyHours,
+        busyHours: busyHours,
         workHours: actualyStudyTime,
         isWeekend: skipWork(day),
       };
@@ -52,6 +52,7 @@ export default function Home() {
     setWorkHoursLeft(workHours);
     setStats(newStats);
   };
+
   // Does not work as state is being set in 2 places and while updating busy/study hours change in every date would end up in a loop. :(
   const handleDayUpdate = (day, updatedBusyHours, updatedWorkHours) => {
     setStats((previousStats) => ({
