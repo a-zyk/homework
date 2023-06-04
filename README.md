@@ -14,6 +14,8 @@ There is an option to change each day's busy and work hours, however, it does no
 
 There is no option to exclude holidays or change weekend to a work day as it would require to update object that holds work hours and busy hours, however,  the same issue wound arrise as mentioned above.
 
+Using inputs with date type does not let you customise calendars too much. Using one of many react calendar libs would give more user friendly (less clicks) and more pleasing result.
+
 ## Running the project
 
 First, run the development server:
